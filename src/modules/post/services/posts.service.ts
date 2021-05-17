@@ -10,7 +10,12 @@ export class PostsService {
     @InjectRepository(Posts) private postRepository: Repository<Posts>,
   ) {}
 
-  async execute({ message, topic, date }: ICreatePostDTO): Promise<Posts> {
+  async execute({
+    author_id,
+    message,
+    topic,
+    date,
+  }: ICreatePostDTO): Promise<Posts> {
     try {
       const postValidate = await this.postRepository.findOne({
         where: { message },
@@ -23,7 +28,12 @@ export class PostsService {
         );
       }
 
-      const post = this.postRepository.create({ message, topic, date });
+      const post = this.postRepository.create({
+        author_id,
+        message,
+        topic,
+        date,
+      });
       await this.postRepository.save(post);
 
       return post;
