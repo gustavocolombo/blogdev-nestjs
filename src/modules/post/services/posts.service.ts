@@ -34,9 +34,10 @@ export class PostsService {
         topic,
         date,
       });
-      await this.postRepository.save(post);
 
-      return post;
+      const newPost = await this.postRepository.save(post);
+
+      return newPost;
     } catch (err) {
       throw new HttpException(
         'This message has been created, not spammed',

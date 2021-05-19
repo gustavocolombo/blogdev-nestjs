@@ -27,8 +27,8 @@ export class Posts {
   @Column({ default: 0 })
   likes: number;
 
-  @Column('simple-array')
-  comments: string;
+  @Column({ type: 'text', array: true, default: [] })
+  comments: string[];
 
   @Column()
   date: Date;

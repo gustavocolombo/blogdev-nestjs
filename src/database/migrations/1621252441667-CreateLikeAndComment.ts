@@ -16,10 +16,8 @@ export class CreateLikeAndComment1621252441667 implements MigrationInterface {
       'posts',
       new TableColumn({
         name: 'comments',
-        type: 'varchar',
-        isArray: true,
+        type: 'varchar[]',
         isNullable: true,
-        length: '1110',
       }),
     );
   }

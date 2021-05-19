@@ -5,7 +5,7 @@ export default interface ICreatePostDTO {
   author_id: Author;
   message: string;
   topic: string;
-  comments?: string;
+  comments?: string[];
   likes?: number;
   date: Date;
 }
